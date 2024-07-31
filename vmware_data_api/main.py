@@ -8,10 +8,7 @@ import argparse
 
 from sheets.google_sheet_manager import GoogleSheetManager
 from vmware.vmware_manager import VMwareManager
-from config import TIMEOUT_IN_SEC
 from logs import logs
-
-socket.setdefaulttimeout(TIMEOUT_IN_SEC)
 
 def extend_parser(service_instance):
     parser = service_instance.parser 
@@ -92,7 +89,6 @@ def main():
         logging.exception("Failed to process virtual machines")
         return -1
 
-    socket.setdefaulttimeout(None)
     return 0
 
 
